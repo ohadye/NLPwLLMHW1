@@ -20,8 +20,6 @@ dist/
 build/
 *.egg-info/
 
-# output files
-error_analysis*
-test_hard_sentences.json
+# other files
 gemini_key.ini
 
