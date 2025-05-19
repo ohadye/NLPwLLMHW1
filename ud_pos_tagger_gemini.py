@@ -263,6 +263,20 @@ if __name__ == "__main__":
         json_ready = [e.model_dump() for e in full_analysis]
         with open("error_analysis.json", "w") as f:
             json.dump(json_ready, f)
+    if os.path.exists("task_3_1.json"):
+        print("File already exists. Skipping Gemini prompt task.")
+    else:
+        task_3_1 = tag_sentences_ud("What if Google expanded on its search - engine ( and now e-mail ) wares into a full - fledged operating system ? @@@ What if Google expanded on its search-engine (and now e-mail) wares into a full-fledged operating system?")
+        tokenized = []
+        original = []
+        tokenizedObject = task_3_1.sentences[0]
+        originalObject = task_3_1.sentences[1]
+        for tokenpos in tokenizedObject.tokens:
+            tokenized.append((tokenpos.token, tokenpos.pos))
+        for tokenpos in originalObject.tokens:
+            original.append((tokenpos.token , tokenpos.pos))  
+        with open("task_3_1.json", "w") as f:
+            json.dump([tokenized, original], f)
     
 
 
